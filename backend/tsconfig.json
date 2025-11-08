@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    /* Módulos */
+    "target": "es2020",                /* ESSENCIAL: Garante suporte a 'for await...of' */
+    "module": "commonjs",              /* Padrão para módulos no Node.js */
+    "moduleResolution": "node",        /* Resolve módulos com a lógica do Node */
+    
+    /* Diretórios */
+    "rootDir": "./src",                /* Onde seus arquivos .ts estão */
+    "outDir": "./dist",                /* Onde a saída compilada irá (para produção) */
+    
+    /* Opções de Tipagem e Interoperabilidade */
+    "esModuleInterop": true,           /* Permite importações de estilo ES6 em código CommonJS (ex: 'import express from "express"') */
+    "forceConsistentCasingInFileNames": true,
+    
+    /* Opções de Checagem de Tipo */
+    "strict": true,                    /* Ativa todas as verificações rigorosas de tipo (boa prática) */
+    "skipLibCheck": true,              /* Ignora a verificação de tipo nos arquivos das bibliotecas (acelera a compilação) */
+  },
+  "include": [
+    "src/**/*"                         /* Inclui todos os arquivos dentro da pasta src */
+  ],
+  "exclude": [
+    "node_modules"                     /* Exclui a pasta node_modules */
+  ]
+}
