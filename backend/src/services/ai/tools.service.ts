@@ -3,6 +3,8 @@ import { tool } from 'ai';
 import { z } from 'zod';
 import { getWeather } from '../weather.service';
 import { getExchangeRate } from '../currency.service';
+import { readPdf } from '../pdf.service';
+
 
 export const weatherTool = tool({
   name: 'weather',
@@ -29,7 +31,20 @@ export const currencyTool = tool({
   },
 });
 
+export const pdfTool = tool({
+  name: 'pdfReader',
+  description: 'Lê e extrai o texto de um arquivo PDF no servidor.',
+  inputSchema: z.object({
+    path: z.string().describe('Caminho completo do arquivo PDF no servidor'),
+  }),
+  execute: async ({ path }) => {
+    const content = await readPdf(path);
+    return { content };
+  },
+});
+
 export const tools = {
   weather: weatherTool,
   currency: currencyTool,
+  pdfReader: pdfTool,
 };
