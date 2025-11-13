@@ -1,24 +1,22 @@
+// Exemplo de index.ts ou server.ts
 import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import { runAgent } from './services/ai/ai.service';
+import chatRoutes from './routes/chat.routes'; // Ajuste o caminho conforme a estrutura do seu projeto
+import * as dotenv from 'dotenv';
 
-dotenv.config();
+// Carrega variáveis de ambiente
+dotenv.config(); 
 
 const app = express();
-app.use(cors());
+const PORT = process.env.PORT || 3000;
+
+// Middleware ESSENCIAL para parsear o corpo da requisição JSON
+// Sem esta linha, o req.body será undefined e a rota /chat falhará.
 app.use(express.json());
 
-app.post('/chat', async (req, res) => {
-  console.log('[SERVER] Rota /chat atingida.');
-  const { prompt } = req.body;
+// Rota principal de chat
+app.use('/chat', chatRoutes); 
 
-  if (!prompt) {
-    return res.status(400).json({ error: 'Prompt não enviado.' });
-  }
-
-  await runAgent(prompt, res);
+// Inicia o servidor
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
