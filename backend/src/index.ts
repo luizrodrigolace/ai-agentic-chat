@@ -1,9 +1,10 @@
-// src/index.ts (BACKEND - CORRIGIDO)
+// src/index.ts (BACKEND - ATUALIZADO)
 
 import express from 'express';
-import chatRoutes from './routes/chat.routes'; 
 import * as dotenv from 'dotenv';
-import cors from 'cors'; // 1. Importe o 'cors'
+import cors from 'cors';
+import chatRoutes from './routes/chat.routes'; 
+import uploadRoutes from './routes/upload.routes'; // 1. Importe a nova rota
 
 // Carrega variáveis de ambiente
 dotenv.config(); 
@@ -11,21 +12,18 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// --- CORREÇÃO DE CORS ---
-// 2. Defina de qual origem você aceitará requisições
+// Configuração do CORS
 const corsOptions = {
-    origin: 'http://localhost:5173' // A URL do seu frontend Vite
+    origin: 'http://localhost:5173' // URL do seu frontend
 };
-
-// 3. Use o middleware 'cors' ANTES de suas rotas
 app.use(cors(corsOptions));
-// ----------------------
 
-// Middleware ESSENCIAL para parsear o corpo da requisição JSON
+// Middlewares
 app.use(express.json());
 
-// Rota principal de chat
+// --- ROTAS ---
 app.use('/chat', chatRoutes); 
+app.use('/upload-pdf', uploadRoutes); // 2. Adicione a rota de upload
 
 // Inicia o servidor
 app.listen(PORT, () => {
