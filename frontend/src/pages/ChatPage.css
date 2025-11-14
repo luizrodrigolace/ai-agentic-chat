@@ -1,0 +1,38 @@
+/* src/pages/ChatPage.css */
+
+.chat-page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #1f1f1f;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  color: #e1e1e1;
+}
+
+.chat-header {
+  padding: 15px 20px;
+  border-bottom: 1px solid #3c4043;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1f1f1f;
+}
+
+.chat-header h1 {
+  font-size: 20px;
+}
+
+.chat-box {
+  flex-grow: 1;
+  overflow-y: hidden; /* A lista interna terá o scroll */
+  display: flex;
+  flex-direction: column;
+  background-color: #131314;
+}
+
+.chat-input-area {
+  border-top: 1px solid #3c4043;
+  background-color: #1f1f1f;
+}
