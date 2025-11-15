@@ -1,5 +1,3 @@
-/* src/components/Chat/ChatMessage.css */
-
 .chat-message {
   padding: 10px 15px;
   border-radius: 18px;
@@ -14,10 +12,10 @@
 
 .chat-message.user {
   align-self: flex-end;
-  background-color: #283550; /* Azul escuro (User) */
+  background-color: #283550;
 }
 
 .chat-message.assistant {
   align-self: flex-start;
-  background-color: #2a2a2e; /* Cinza escuro (Assistente) */
+  background-color: #2a2a2e;
 }

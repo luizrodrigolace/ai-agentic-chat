@@ -1,6 +1,4 @@
-// src/controllers/upload.controller.ts
 import { Request, Response } from 'express';
-import path from 'path';
 
 export const handlePdfUpload = (req: Request, res: Response) => {
   try {
@@ -9,8 +7,6 @@ export const handlePdfUpload = (req: Request, res: Response) => {
       return res.status(400).json({ error: 'Nenhum arquivo PDF foi enviado.' });
     }
 
-    // Retorna o caminho absoluto do arquivo no servidor
-    // O pdfTool precisa do caminho completo
     const filePath = req.file.path; 
 
     console.log(`[SERVER] ✅ PDF recebido e salvo em: ${filePath}`);

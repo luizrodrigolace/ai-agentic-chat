@@ -1,4 +1,3 @@
-// src/services/ai/tools.service.ts
 import { tool } from 'ai';
 import { z } from 'zod';
 import { getWeather } from '../weather.service';

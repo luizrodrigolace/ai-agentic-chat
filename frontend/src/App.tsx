@@ -1,10 +1,7 @@
-// src/App.tsx
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ChatProvider } from './context/ChatContext';
 
-// Importação das Páginas
 import LoginPage from './pages/LoginPage';
 import ChatPage from './pages/ChatPage';
 
@@ -12,12 +9,9 @@ const App: React.FC = () => {
     return (
         <Router>
             <Routes>
-                {/* Rota de Login */}
-                <Route path="/login" element={<LoginPage />} />
-                
-                {/* Rota de Chat (agora pública, mas envolve o ChatProvider) */}
+                <Route path="/" element={<LoginPage />} />
                 <Route 
-                    path="/" 
+                    path="/chat" 
                     element={
                         <ChatProvider>
                             <ChatPage />
@@ -25,8 +19,7 @@ const App: React.FC = () => {
                     } 
                 />
                 
-                {/* Redirecionamento padrão para a tela de login */}
-                <Route path="*" element={<Navigate to="/login" replace />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
         </Router>
     );

@@ -1,15 +1,13 @@
-// src/components/Chat/ChatMessagesList.tsx
-
 import React, { useEffect, useRef } from 'react';
 import { useChat } from '../../context/ChatContext';
-import ChatMessage from './ChatMessage';
-import './ChatMessagesList.css'; // Importa o CSS
+import ChatMessage from '././ChatMessage';
+import './ChatMessagesList.css';
 
 const ChatMessagesList: React.FC = () => {
     const { messages, isLoading } = useChat(); 
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
-    // Auto-scroll para a última mensagem
+    // auto-scroll para a última mensagem
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, [messages]);

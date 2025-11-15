@@ -1,9 +1,7 @@
-/* src/components/Chat/ChatMessagesList.css */
-
 .messages-list-container {
   flex-grow: 1;
   padding: 20px;
-  overflow-y: auto; /* Scroll para a lista */
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
 }

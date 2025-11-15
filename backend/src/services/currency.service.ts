@@ -1,4 +1,3 @@
-// src/services/currency.service.ts
 import axios from 'axios';
 
 export async function getExchangeRate(base: string, target: string) {

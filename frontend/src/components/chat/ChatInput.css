@@ -1,12 +1,9 @@
-/* src/components/Chat/ChatInput.css */
-
 .chat-input-form {
   display: flex;
-  align-items: center; /* Alinha o botão de anexo verticalmente */
+  align-items: center; 
   padding: 10px 15px;
 }
 
-/* ⚠️ NOVO: Botão de anexo */
 .upload-button {
   background: none;
   border: none;
@@ -26,7 +23,6 @@
   cursor: not-allowed;
 }
 
-/* Input de arquivo real (fica escondido) */
 .file-input {
   display: none;
 }

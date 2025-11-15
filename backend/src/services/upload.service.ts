@@ -1,12 +1,11 @@
-// src/services/upload.service.ts
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
 
-// 1. Define o diretório de uploads
+// define o diretório de uploads
 const uploadDir = path.join(__dirname, '../../uploads');
 
-// 2. Garante que o diretório exista
+// garante que o diretório exista
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
@@ -24,12 +23,12 @@ const storage = multer.diskStorage({
   },
 });
 
-// 4. Cria o middleware de upload
-// Aceitará apenas um arquivo, com o nome de campo 'pdf'
+// middleware de upload
+// aceita apenas um arquivo, com o nome de campo 'pdf'
 const uploadMiddleware = multer({ 
   storage: storage,
   fileFilter: (req, file, cb) => {
-    // Validação simples para aceitar apenas PDFs
+    // Validação para aceitar apenas PDFs
     if (file.mimetype === 'application/pdf') {
       cb(null, true);
     } else {

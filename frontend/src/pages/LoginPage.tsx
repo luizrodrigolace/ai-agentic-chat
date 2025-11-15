@@ -1,8 +1,6 @@
-// src/pages/LoginPage.tsx
-
 import React, { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './LoginPage.css'; // Importa o CSS
+import './LoginPage.css';
 
 const LoginPage: React.FC = () => {
     const [username, setUsername] = useState('');
@@ -11,7 +9,8 @@ const LoginPage: React.FC = () => {
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        navigate('/', { replace: true });
+        
+        navigate('/chat', { replace: true });
     };
 
     return (
@@ -25,7 +24,6 @@ const LoginPage: React.FC = () => {
                         placeholder="Nome de Usuário"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        required
                         className="login-input"
                     />
                     <input
@@ -33,7 +31,6 @@ const LoginPage: React.FC = () => {
                         placeholder="Senha"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        required
                         className="login-input"
                     />
                     <button type="submit" className="login-button">
